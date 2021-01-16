@@ -3,9 +3,6 @@
 </p>
 
 <p align="center">NCStock Backend built with Nest.JS</p>
-<p align="center">
-  <img src="https://badgen.net/github/stars/nighostchris/ncstock-backend" alt="Stars" />
-</p>
 
 ## Description
 
