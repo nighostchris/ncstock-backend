@@ -1,10 +1,13 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+
 import { AppService } from './app.service';
+
 import { AppController } from './app.controller';
 import { StockController } from './controllers/stock.controller';
-import { SNPCompaniesModule } from './snp_companies/snpCompanies.module';
+
 import { SNPBreadthModule } from './snp_breadth/snpBreadth.module';
+import { SNPCompaniesModule } from './snp_companies/snpCompanies.module';
 
 @Module({
   imports: [

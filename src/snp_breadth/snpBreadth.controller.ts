@@ -10,7 +10,7 @@ export class SNPBreadthController {
     return await this.service.getAll();
   }
 
-  @Post('update')
+  @Get('update')
   async update(): Promise<String> {
     return await this.service.fetchAndUpdate();
   }

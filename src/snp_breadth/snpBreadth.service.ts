@@ -45,7 +45,6 @@ const proportionOfGreaterThan20MAByIndustry = async (tickers: Array<String>): Pr
   console.log(moment().format('YYYY-MM-DD'));
 
   const isGreaterThan20MAList = Object.keys(stockDetails).map((ticker) => {
-    console.log(ticker);
     const targetTickerDetails = stockDetails[ticker];
     const currentPrice = targetTickerDetails[0].close;
     const priceOfLast20Days = targetTickerDetails.slice(0, 20).map((p) => Number(p.close));
@@ -69,7 +68,7 @@ export class SNPBreadthService {
   }
 
   async fetchAndUpdate(): Promise<String> {
-    const result = { date: '2021-01-15' };
+    const result = { date: moment().format('YYYY-MM-DD') };
     const snpCompanies = await this.companyService.getAll();
     const industryList = [...new Set(snpCompanies.map((c) => c.industry.replace(/\n/g, '')))];
 
