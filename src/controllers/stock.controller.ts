@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as moment from 'moment';
 import * as cheerio from 'cheerio';
 import * as yahooFinance from 'yahoo-finance';
 import { Controller, Get, Param } from '@nestjs/common';
@@ -6,14 +7,21 @@ import { Controller, Get, Param } from '@nestjs/common';
 @Controller()
 export class StockController {
   @Get('/stock/:id')
-  async getDetails(@Param() params): Promise<string> {
+  async getDetails(@Param() params): Promise<Array<any>> {
     const stockDetails = await yahooFinance.historical({
       symbol: params.id,
-      from: '2021-01-01',
-      to: '2021-01-03',
+      from: moment('20210116').subtract(30, 'days').format('YYYY-MM-DD'),
+      to: '2021-01-16',
     });
 
-    return stockDetails;
+    console.log(stockDetails);
+
+    //const currentPrice = stockDetails[0].close;
+    const currentPrice = 1;
+    const priceOfLast20Days = stockDetails.slice(0, 20).map((p) => Number(p.close));
+    const averagePriceFor20Days = priceOfLast20Days.reduce((acc, current) => acc + current) / 20;
+
+    return [currentPrice, averagePriceFor20Days, currentPrice > averagePriceFor20Days];
   }
 
   @Get('/stocks/snp')

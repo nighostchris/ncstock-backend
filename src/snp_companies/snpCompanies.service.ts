@@ -48,7 +48,7 @@ export class SNPCompaniesService {
           });
 
           if (ticker !== '' && industry !== '') {
-            wikiData.push({ ticker: ticker.replace(/\n/g, ''), industry: industry });
+            wikiData.push({ ticker: ticker.replace(/\n/g, '').replace('.', '-'), industry: industry });
           }
         });
       });

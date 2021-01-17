@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { SNPCompaniesService } from './snpCompanies.service';
 
-@Controller('snp')
+@Controller('snp/stocks')
 export class SNPCompaniesController{
   constructor(private service: SNPCompaniesService) {}
 
