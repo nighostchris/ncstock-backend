@@ -6,11 +6,13 @@ import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { StockController } from './controllers/stock.controller';
 
+import { GeneralModule } from './general/general.module';
 import { SNPBreadthModule } from './snp_breadth/snpBreadth.module';
 import { SNPCompaniesModule } from './snp_companies/snpCompanies.module';
 
 @Module({
   imports: [
+    GeneralModule,
     SNPCompaniesModule,
     SNPBreadthModule,
     MongooseModule.forRoot('mongodb+srv://admin:nighostchris@cluster0.2fhts.azure.mongodb.net/data?retryWrites=true&w=majority')
