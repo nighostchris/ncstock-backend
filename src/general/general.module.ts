@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { GeneralService } from './General.service';
-import { GeneralController } from './General.controller';
+import { GeneralService } from './general.service';
+import { GeneralController } from './general.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GoldSchema } from './gold/gold.schema';
 import { DXYSchema } from './dxy/dxy.schema';
